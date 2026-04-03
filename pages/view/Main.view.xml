@@ -1,0 +1,42 @@
+<mvc:View controllerName="batch.parser.controller.Main"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Page id="page">
+		<customHeader>
+			<Toolbar id="idToolbar">
+				<ComboBox id="idODataVersion" selectedKey="v4" change="onODataVersionChange">
+					<items>
+						<core:ListItem id="idODataV2" key="v2" text="OData V2" />
+						<core:ListItem id="idODataV4" key="v4" text="OData V4" />
+					</items>
+				</ComboBox>
+				<ToolbarSeparator id="idToolbarSeparator" />
+			</Toolbar>
+		</customHeader>
+		<subHeader>
+			<Toolbar id="idSubToolbar">
+				<Button id="idParseButton" text="Parse" press="onParsePress" />
+				<Button id="idClearButton" text="Clear" press="onClearPress" />
+			</Toolbar>
+		</subHeader>
+		<content>
+			<IconTabBar id="idIconTabBar" stretchContentHeight="true">
+				<items>
+					<IconTabFilter id="idTextTab" key="text" text="Text">
+						<content>
+							<TextArea id="idTextArea" width="100%" height="100%" />
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="idTreeTab" key="tree" text="Tree">
+						<content>
+							<Tree id="idJsonTree" items="{/children}">
+								<StandardTreeItem id="idTreeItem" title="{name}" />
+							</Tree>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</mvc:View>
